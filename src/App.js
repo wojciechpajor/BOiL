@@ -3,7 +3,7 @@ import DataInput from "./Components/DataInput";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <DataInput></DataInput>
     </div>
   );
