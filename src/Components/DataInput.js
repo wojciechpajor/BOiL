@@ -1,5 +1,6 @@
 import React from "react"
 import {useState} from 'react'
+import Result from "./Result";
 
 const DataInput = () => {
     class Data {
@@ -17,119 +18,145 @@ const DataInput = () => {
 
     const results = () => {
         return (
-            <div>Graphic representation</div>
+            <Result inputData={inputData} />
+        )
+    }
+
+    const fillForm = () => {
+        inputData.jkz[0] = 10;
+        inputData.jkz[1] = 12;
+        inputData.podaz[0] = 20;
+        inputData.podaz[1] = 30;
+        inputData.popyt[0] = 10;
+        inputData.popyt[1] = 28;
+        inputData.popyt[2] = 27;
+        inputData.cenaSprzedazy[0] = 30;
+        inputData.cenaSprzedazy[1] = 25;
+        inputData.cenaSprzedazy[2] = 30;
+        inputData.D1[0] = 8;
+        inputData.D1[1] = 14;
+        inputData.D1[2] = 17;
+        inputData.D2[0] = 12;
+        inputData.D2[1] = 9;
+        inputData.D2[2] = 19;
+        setIsSubmitted(true);
+        return (<Result inputData={inputData} />)
+    }
+
+    const inputForm = () => {
+        return(
+            <div>
+                <form onSubmit={() => setIsSubmitted(true)}>
+                    <h3>Dane dostawców :</h3>
+                    <div className="row">
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.jkz[0] = e.target.value}
+                                   className="form-control" placeholder="jednostkowy koszt zakupu" required/>
+
+                        </div>
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.podaz[0] = e.target.value}
+                                   className="form-control" placeholder="Podaż"  required/>
+
+                        </div>
+                    </div>
+                    <div className="row mt-1">
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.jkz[1] = e.target.value}
+                                   className="form-control" placeholder="jednostkowy koszt zakupu" required/>
+
+                        </div>
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.podaz[1] = e.target.value}
+                                   className="form-control" placeholder="Podaż" required/>
+
+                        </div>
+                    </div>
+                <h3>Dane Odbiorców :</h3>
+                    <div className="row">
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.popyt[0] = e.target.value}
+                                   className="form-control" placeholder="Popyt" required/>
+
+                        </div>
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[0] = e.target.value}
+                                   className="form-control" placeholder="Cena sprzedaży" required/>
+
+                        </div>
+                    </div>
+                    <div className="row mt-1">
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.popyt[1] = e.target.value}
+                                   className="form-control" placeholder="Popyt" required/>
+
+                        </div>
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[1] = e.target.value}
+                                   className="form-control" placeholder="Cena sprzedaży" required/>
+
+                        </div>
+                    </div>
+                    <div className="row mt-1">
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.popyt[2] = e.target.value}
+                                   className="form-control" placeholder="Popyt" required/>
+
+                        </div>
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[2] = e.target.value}
+                                   className="form-control" placeholder="Cena sprzedaży" required/>
+
+                        </div>
+                    </div>
+                <h3>Jednostkowe koszty transportu :</h3>
+                    <div className="row">
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.D1[0] = e.target.value} className="form-control"
+                                   placeholder="D1-O1" required/>
+
+                        </div>
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.D2[0] = e.target.value} className="form-control"
+                                   placeholder="D2-O1" required/>
+
+                        </div>
+                    </div>
+                    <div className="row mt-1">
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.D1[1] = e.target.value} className="form-control"
+                                   placeholder="D1-O2" required/>
+
+                        </div>
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.D2[1] = e.target.value} className="form-control"
+                                   placeholder="D2-O2" required/>
+
+                        </div>
+                    </div>
+                    <div className="row mt-1">
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.D1[2] = e.target.value} className="form-control"
+                                   placeholder="D1-O3" required/>
+
+                        </div>
+                        <div className="col-6">
+                            <input type={"number"} onChange={e => inputData.D2[2] = e.target.value} className="form-control"
+                                   placeholder="D2-O3" required/>
+
+                        </div>
+                    </div>
+                    <button type="submit" className="btn btn-lg btn-primary m-2">Oblicz</button>
+                    <button onClick={() => fillForm()} className="btn btn-lg btn-secondary m-2">Przykładowe dane</button>
+                </form>
+            </div>
         )
     }
 
     const inputWindow = () => {
         return (
             <div>
-                <h3>Dane dostawców :</h3>
-                <form>
-                    <div className="row">
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.jkz[0] = e.target.value}
-                                   className="form-control" placeholder="jednostkowy koszt zakupu"/>
-
-                        </div>
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.podaz[0] = e.target.value}
-                                   className="form-control" placeholder="Podaż"/>
-
-                        </div>
-                    </div>
-                    <div className="row mt-1">
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.jkz[1] = e.target.value}
-                                   className="form-control" placeholder="jednostkowy koszt zakupu"/>
-
-                        </div>
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.podaz[1] = e.target.value}
-                                   className="form-control" placeholder="Podaż"/>
-
-                        </div>
-                    </div>
-                </form>
-                <h3>Dane Odbiorców :</h3>
-                <form>
-                    <div className="row">
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.popyt[0] = e.target.value}
-                                   className="form-control" placeholder="Popyt"/>
-
-                        </div>
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.cenaSprzedazy[0] = e.target.value}
-                                   className="form-control" placeholder="Cena sprzedaży"/>
-
-                        </div>
-                    </div>
-                    <div className="row mt-1">
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.popyt[1] = e.target.value}
-                                   className="form-control" placeholder="Popyt"/>
-
-                        </div>
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.cenaSprzedazy[1] = e.target.value}
-                                   className="form-control" placeholder="Cena sprzedaży"/>
-
-                        </div>
-                    </div>
-                    <div className="row mt-1">
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.popyt[2] = e.target.value}
-                                   className="form-control" placeholder="Popyt"/>
-
-                        </div>
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.cenaSprzedazy[2] = e.target.value}
-                                   className="form-control" placeholder="Cena sprzedaży"/>
-
-                        </div>
-                    </div>
-                </form>
-                <h3>Jednostkowe koszty transportu :</h3>
-                <form>
-                    <div className="row">
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.D1[0] = e.target.value} className="form-control"
-                                   placeholder="D1-O1"/>
-
-                        </div>
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.D2[0] = e.target.value} className="form-control"
-                                   placeholder="D2-O1"/>
-
-                        </div>
-                    </div>
-                    <div className="row mt-1">
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.D1[1] = e.target.value} className="form-control"
-                                   placeholder="D1-O2"/>
-
-                        </div>
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.D2[1] = e.target.value} className="form-control"
-                                   placeholder="D2-O2"/>
-
-                        </div>
-                    </div>
-                    <div className="row mt-1">
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.D1[2] = e.target.value} className="form-control"
-                                   placeholder="D1-O3"/>
-
-                        </div>
-                        <div className="col-6">
-                            <input type={Text} onChange={e => inputData.D2[2] = e.target.value} className="form-control"
-                                   placeholder="D2-O3"/>
-
-                        </div>
-                    </div>
-                </form>
-                <button onClick={() => setIsSubmitted(true)} className="btn btn-lg btn-primary m-2">Oblicz</button>
+                {inputForm()}
             </div>
         )
     }
