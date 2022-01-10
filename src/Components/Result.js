@@ -1,4 +1,5 @@
 import React from "react";
+import App from "../App";
 
 const Result = (props) => {
 
@@ -8,7 +9,6 @@ const Result = (props) => {
         {id: 1, podaz: podaz[0], koszt_zakupu: jkz[0]},
         {id: 2, podaz: podaz[1], koszt_zakupu: jkz[1]},
     ];
-
 
     const odbiorcy = [
         {id: 1, popyt: popyt[0], cena_sprzedazy: cenaSprzedazy[0]},
@@ -32,7 +32,6 @@ const Result = (props) => {
             koszty_calkowity[i][j] = koszty_transportu[i][j] + dostawcy[i].koszt_zakupu;
         }
     }
-
 
     console.log(`
 KOSZT CALKOWITY:
@@ -266,7 +265,7 @@ TABELA ZMIENNA:
     }
 
 
-    function znajdz_max() {
+    function znajdzMax() {
         let max = 0;
         for (let i = 0; i < temp.length; i++) {
             for (let j = 0; j < temp[i].length; j++) {
@@ -278,10 +277,10 @@ TABELA ZMIENNA:
         return max;
     }
 
-    function zmiana_pop_pod() {
+    function zmianaPopPod() {
         for (let i = 0; i < temp.length; i++) {
             for (let j = 0; j < temp[i].length; j++) {
-                if (temp[i][j]["zysk"] === znajdz_max()) {
+                if (temp[i][j]["zysk"] === znajdzMax()) {
                     if (temp[i][j]["dostepny_popyt"] <= temp[i][j]["dostena_podaz"]) {
                         ile_towaru[i][j] = temp[i][j]["dostepny_popyt"]
                         dostawcy[i].podaz -= temp[i][j]["dostepny_popyt"]
@@ -300,8 +299,8 @@ TABELA ZMIENNA:
         }
     }
 
-    zmiana_pop_pod()
-    zmiana_pop_pod()
+    zmianaPopPod()
+    zmianaPopPod()
 
     for (let i = 0; i < temp.length; i++) {
         for (let j = 0; j < temp[i].length; j++) {
@@ -420,6 +419,12 @@ TABELA ZMIENNA:
 
     show();
 
+    const returnApp = () => {
+        return (
+            <App />
+        )
+    }
+
     return (
         <div className='container'>
             <h2>Koszt całkowity</h2>
@@ -478,6 +483,9 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
+            <div>
+                <button onClick={() => returnApp()} className="btn btn-lg btn-primary m-2">Powrót</button>
+            </div>
             {/*<h2>TAB Zmienna</h2>
             <table className="table">
                 <thead>
