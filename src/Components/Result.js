@@ -421,7 +421,7 @@ TABELA ZMIENNA:
 
     return (
         <div className='container'>
-            <h2>JEDNOSTKOWE Koszty transportu</h2>
+            <h2 className="pt-5">Jednostkowe Koszty transportu</h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -445,10 +445,27 @@ TABELA ZMIENNA:
                     <td>{koszty_transportu[1][2]}</td>
                 </tr>
                 </tbody>
+            </table >
+            <h2 className="pt-3" >Jednostkowe koszty zakupu:</h2>
+            <table className="table">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">D1</th>
+                    <td>{dostawcy[0].koszt_zakupu}</td>
+                </tr>
+                <tr>
+                    <th scope="row">D2</th>
+                    <td>{dostawcy[1].koszt_zakupu}</td>
+                </tr>
+                </tbody>
             </table>
-            <div>JEDNOSTKOWE KOSZTY ZAKUPU u dostawcy 1: {dostawcy[0].koszt_zakupu}</div>
-            <div>JEDNOSTKOWE KOSZTY ZAKUPU u dostawcy 2: {dostawcy[1].koszt_zakupu}</div>
-            <h2>Koszt całkowity</h2>
+            <h2 className="pt-5" >Koszt całkowity</h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -473,7 +490,7 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
-            <h2>Zysk jednostkowy</h2>
+            <h2 className="pt-5" >Zysk jednostkowy</h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -504,7 +521,7 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
-            <h2>Które trasy wybieramy w ostatnim podejściu (po zastosowaniu już funkcji korygującej), kierując się regułą maksymalnego elementu macierzy.</h2>
+            <h2 className="pt-5" >Które trasy wybieramy w ostatnim podejściu (po zastosowaniu już funkcji korygującej), kierując się regułą maksymalnego elementu macierzy.</h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -539,7 +556,7 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
-            <h2>Ilość towaru przeworzona do odbiorcy: </h2>
+            <h2 className="pt-5" >Ilość towaru przeworzona do odbiorcy: </h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -574,7 +591,7 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
-            <h2>Obliczanie alfy, bety, delty (by zobaczyć czy dobrze wylicza) : </h2>
+            <h2 className="pt-5" >Obliczanie alfy, bety, delty (by zobaczyć czy dobrze wylicza) : </h2>
             <table className="table">
                 <thead>
                 <tr>
