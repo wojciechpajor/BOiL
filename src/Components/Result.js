@@ -539,6 +539,88 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
+            <h2>Ilość towaru przeworzona do odbiorcy: </h2>
+            <table className="table">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">O 1</th>
+                    <th scope="col">O 2</th>
+                    <th scope="col">O 3</th>
+                    <th scope="col">O F</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">D1</th>
+                    <td>{ile_towaru[0][0]}</td>
+                    <td>{ile_towaru[0][1]}</td>
+                    <td>{ile_towaru[0][2]}</td>
+                    <td>{ile_towaru[0][3]}</td>
+                </tr>
+                <tr>
+                    <th scope="row">D2</th>
+                    <td>{ile_towaru[1][0]}</td>
+                    <td>{ile_towaru[1][1]}</td>
+                    <td>{ile_towaru[1][2]}</td>
+                    <td>{ile_towaru[1][3]}</td>
+                </tr>
+                <tr>
+                    <th scope="row">DF</th>
+                    <td>{ile_towaru[2][0]}</td>
+                    <td>{ile_towaru[2][1]}</td>
+                    <td>{ile_towaru[2][2]}</td>
+                    <td>{ile_towaru[2][3]}</td>
+                </tr>
+                </tbody>
+            </table>
+            <h2>Obliczanie alfy, bety, delty (by zobaczyć czy dobrze wylicza) : </h2>
+            <table className="table">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">O 1</th>
+                    <th scope="col">O 2</th>
+                    <th scope="col">O 3</th>
+                    <th scope="col">O F</th>
+                    <th scope="col">a (alfa)</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">D1</th>
+                    <td>{delta[0][0]}</td>
+                    <td>{delta[0][1]}</td>
+                    <td>{delta[0][2]}</td>
+                    <td>{delta[0][3]}</td>
+                    <td>{alfa[0]}</td>
+                </tr>
+                <tr>
+                    <th scope="row">D2</th>
+                    <td>{delta[1][0]}</td>
+                    <td>{delta[1][1]}</td>
+                    <td>{delta[1][2]}</td>
+                    <td>{delta[1][3]}</td>
+                    <td>{alfa[1]}</td>
+                </tr>
+                <tr>
+                    <th scope="row">DF</th>
+                    <td>{delta[2][0]}</td>
+                    <td>{delta[2][1]}</td>
+                    <td>{delta[2][2]}</td>
+                    <td>{delta[2][3]}</td>
+                    <td>{alfa[2]}</td>
+                </tr>
+                <tr>
+                    <th scope="row">B (beta)</th>
+                    <td>{beta[0]}</td>
+                    <td>{beta[1]}</td>
+                    <td>{beta[2]}</td>
+                    <td>{beta[3]}</td>
+                </tr>
+                </tbody>
+            </table>
 
         </div>
     )
