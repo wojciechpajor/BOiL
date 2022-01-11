@@ -419,12 +419,6 @@ TABELA ZMIENNA:
 
     show();
 
-    const returnApp = () => {
-        return (
-            <App />
-        )
-    }
-
     return (
         <div className='container'>
             <h2>JEDNOSTKOWE Koszty transportu</h2>
@@ -510,58 +504,43 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
-            <div>
-                <button onClick={() => returnApp()} className="btn btn-lg btn-primary m-2">Powrót</button>
-            </div>
-            {/*<h2>TAB Zmienna</h2>
+            <h2>Które trasy wybieramy w pierwszym podejściu, kierując się regułą maksymalnego elementu macierzy.</h2>
             <table className="table">
                 <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">1</th>
-                    <th scope="col">2</th>
-                    <th scope="col">3</th>
+                    <th scope="col">O 1</th>
+                    <th scope="col">O 2</th>
+                    <th scope="col">O 3</th>
+                    <th scope="col">O F</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row"></th>
-                    <td>{zysk_jednostkowy[0][0]}</td>
-                    <td>{koszty_calkowity[0][1]}</td>
-                    <td>{koszty_calkowity[0][2]}</td>
-                    <td>{koszty_calkowity[0][2]}</td>
-                </tr>
-                <tr>
                     <th scope="row">D1</th>
-                    <td>{koszty_calkowity[1][0]}</td>
-                    <td>{koszty_calkowity[1][1]}</td>
-                    <td>{koszty_calkowity[1][2]}</td>
-                    <td>{koszty_calkowity[1][2]}</td>
+                    <td>{}</td>
+                    <td>{temp[0][0]["czy_bazowa"]}</td>
+                    <td>{temp[0][1]["czy_bazowa"]}</td>
+                    <td>{temp[0][2]["czy_bazowa"]}</td>
+                    <td>{temp[0][3]["czy_bazowa"]}</td>
                 </tr>
                 <tr>
-                    <th scope="row"></th>
-                    <td>{koszty_calkowity[2][0]}</td>
-                    <td>{koszty_calkowity[2][1]}</td>
-                    <td>{koszty_calkowity[2][2]}</td>
-                    <td>{koszty_calkowity[2][2]}</td>
-                </tr>
-                <tr>
-                    <th scope="row">DF</th>
-                    <td>{koszty_calkowity[2][0]}</td>
-                    <td>{koszty_calkowity[2][1]}</td>
-                    <td>{koszty_calkowity[2][2]}</td>
-                    <td>{koszty_calkowity[2][2]}</td>
+                    <th scope="row">D2</th>
+                    <td>{temp[1][0]["czy_bazowa"]}</td>
+                    <td>{temp[1][1]["czy_bazowa"]}</td>
+                    <td>{temp[1][2]["czy_bazowa"]}</td>
+                    <td>{temp[1][3]["czy_bazowa"]}</td>
                 </tr>
                 <tr>
                     <th scope="row">DF</th>
-                    <td>{koszty_calkowity[2][0]}</td>
-                    <td>{koszty_calkowity[2][1]}</td>
-                    <td>{koszty_calkowity[2][2]}</td>
-                    <td>{koszty_calkowity[2][2]}</td>
+                    <td>{temp[2][0]["czy_bazowa"]}</td>
+                    <td>{temp[2][1]["czy_bazowa"]}</td>
+                    <td>{temp[2][2]["czy_bazowa"]}</td>
+                    <td>{temp[2][3]["czy_bazowa"]}</td>
                 </tr>
                 </tbody>
-            </table>*/}
-
+            </table>
+            
         </div>
     )
 }
