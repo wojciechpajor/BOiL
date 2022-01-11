@@ -22,6 +22,15 @@ const DataInput = () => {
         )
     }
 
+    const handleCalculate = () => {
+        setIsSubmitted(true)
+    }
+
+    const handleClearTable = () => {
+        setIsSubmitted(false)
+        setInputData(new Data)
+    }
+
     const fillForm = () => {
         inputData.jkz[0] = 10;
         inputData.jkz[1] = 12;
@@ -41,20 +50,12 @@ const DataInput = () => {
         inputData.D2[2] = 19;
         setIsSubmitted(true);
         console.log(inputData)
-        return (<Result inputData={inputData} />)
     }
-
-    const handleInputData = () => {
-        setIsSubmitted(true);
-        console.log(inputData)
-        return (<Result inputData={inputData} />)
-    }
-
 
     const inputForm = () => {
         return(
             <div>
-                <form onSubmit={() => setIsSubmitted(true)}>
+                <form>
                     <h3>Dane dostawców :</h3>
                     <div className="row">
                         <div className="col-6">
@@ -154,9 +155,11 @@ const DataInput = () => {
 
                         </div>
                     </div>
-                    <button onClick={() => handleInputData()} type="submit" className="btn btn-lg btn-primary m-2">Oblicz</button>
-                    <button onClick={() => fillForm()} className="btn btn-lg btn- m-2">Przykładowe dane</button>
+                    <button onClick={() => handleClearTable()} className="btn btn-lg btn-danger m-2">Wyczyść Dane</button>
                 </form>
+                    <button onClick={() => handleCalculate()} className="btn btn-lg btn-primary m-2">Oblicz</button>
+                    <button onClick={() => fillForm()} className="btn btn-lg btn-warning m-2">Przykładowe dane</button>
+
             </div>
         )
     }
@@ -172,11 +175,8 @@ const DataInput = () => {
 
     return (
         <div className="container py-2 bg-light">
-            {
-                isSubmitted
-                    ? results()
-                    : inputWindow()
-            }
+            {inputWindow()}
+            {isSubmitted && results()}
         </div>
     )
 }
