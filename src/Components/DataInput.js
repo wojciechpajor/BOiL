@@ -40,8 +40,16 @@ const DataInput = () => {
         inputData.D2[1] = 9;
         inputData.D2[2] = 19;
         setIsSubmitted(true);
+        console.log(inputData)
         return (<Result inputData={inputData} />)
     }
+
+    const handleInputData = () => {
+        setIsSubmitted(true);
+        console.log(inputData)
+        return (<Result inputData={inputData} />)
+    }
+
 
     const inputForm = () => {
         return(
@@ -50,24 +58,24 @@ const DataInput = () => {
                     <h3>Dane dostawców :</h3>
                     <div className="row">
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.jkz[0] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.jkz[0] = +e.target.value}
                                    className="form-control" placeholder="jednostkowy koszt zakupu" required/>
 
                         </div>
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.podaz[0] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.podaz[0] = +e.target.value}
                                    className="form-control" placeholder="Podaż"  required/>
 
                         </div>
                     </div>
                     <div className="row mt-1">
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.jkz[1] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.jkz[1] = +e.target.value}
                                    className="form-control" placeholder="jednostkowy koszt zakupu" required/>
 
                         </div>
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.podaz[1] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.podaz[1] = +e.target.value}
                                    className="form-control" placeholder="Podaż" required/>
 
                         </div>
@@ -75,36 +83,36 @@ const DataInput = () => {
                 <h3>Dane Odbiorców :</h3>
                     <div className="row">
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.popyt[0] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.popyt[0] = +e.target.value}
                                    className="form-control" placeholder="Popyt" required/>
 
                         </div>
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[0] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[0] = +e.target.value}
                                    className="form-control" placeholder="Cena sprzedaży" required/>
 
                         </div>
                     </div>
                     <div className="row mt-1">
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.popyt[1] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.popyt[1] = +e.target.value}
                                    className="form-control" placeholder="Popyt" required/>
 
                         </div>
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[1] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[1] = +e.target.value}
                                    className="form-control" placeholder="Cena sprzedaży" required/>
 
                         </div>
                     </div>
                     <div className="row mt-1">
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.popyt[2] = e.target.value}
+                            <input type="number" onChange={e => inputData.popyt[2] = +e.target.value}
                                    className="form-control" placeholder="Popyt" required/>
 
                         </div>
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[2] = e.target.value}
+                            <input type={"number"} onChange={e => inputData.cenaSprzedazy[2] = +e.target.value}
                                    className="form-control" placeholder="Cena sprzedaży" required/>
 
                         </div>
@@ -112,42 +120,42 @@ const DataInput = () => {
                 <h3>Jednostkowe koszty transportu :</h3>
                     <div className="row">
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.D1[0] = e.target.value} className="form-control"
+                            <input type={"number"} onChange={e => inputData.D1[0] = +e.target.value} className="form-control"
                                    placeholder="D1-O1" required/>
 
                         </div>
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.D2[0] = e.target.value} className="form-control"
+                            <input type={"number"} onChange={e => inputData.D2[0] = +e.target.value} className="form-control"
                                    placeholder="D2-O1" required/>
 
                         </div>
                     </div>
                     <div className="row mt-1">
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.D1[1] = e.target.value} className="form-control"
+                            <input type={"number"} onChange={e => inputData.D1[1] = +e.target.value} className="form-control"
                                    placeholder="D1-O2" required/>
 
                         </div>
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.D2[1] = e.target.value} className="form-control"
+                            <input type={"number"} onChange={e => inputData.D2[1] = +e.target.value} className="form-control"
                                    placeholder="D2-O2" required/>
 
                         </div>
                     </div>
                     <div className="row mt-1">
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.D1[2] = e.target.value} className="form-control"
+                            <input type={"number"} onChange={e => inputData.D1[2] = +e.target.value} className="form-control"
                                    placeholder="D1-O3" required/>
 
                         </div>
                         <div className="col-6">
-                            <input type={"number"} onChange={e => inputData.D2[2] = e.target.value} className="form-control"
+                            <input type={"number"} onChange={e => inputData.D2[2] = +e.target.value} className="form-control"
                                    placeholder="D2-O3" required/>
 
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-lg btn-primary m-2">Oblicz</button>
-                    <button onClick={() => fillForm()} className="btn btn-lg btn-secondary m-2">Przykładowe dane</button>
+                    <button onClick={() => handleInputData()} type="submit" className="btn btn-lg btn-primary m-2">Oblicz</button>
+                    <button onClick={() => fillForm()} className="btn btn-lg btn- m-2">Przykładowe dane</button>
                 </form>
             </div>
         )

@@ -34,6 +34,10 @@ const Result = (props) => {
     }
 
 
+    console.log(typeof koszty_calkowity[0][0])
+    console.log(koszty_calkowity[0][0])
+
+    console.table(koszty_calkowity[0][0])
     console.log(`
 KOSZT CALKOWITY:
 
