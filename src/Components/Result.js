@@ -504,7 +504,7 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
-            <h2>Które trasy wybieramy w pierwszym podejściu, kierując się regułą maksymalnego elementu macierzy.</h2>
+            <h2>Które trasy wybieramy w ostatnim podejściu (po zastosowaniu już funkcji korygującej), kierując się regułą maksymalnego elementu macierzy.</h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -518,25 +518,24 @@ TABELA ZMIENNA:
                 <tbody>
                 <tr>
                     <th scope="row">D1</th>
-                    <td>{}</td>
-                    <td>{temp[0][0]["czy_bazowa"]}</td>
-                    <td>{temp[0][1]["czy_bazowa"]}</td>
-                    <td>{temp[0][2]["czy_bazowa"]}</td>
-                    <td>{temp[0][3]["czy_bazowa"]}</td>
+                    <td>{bazowe[0][0].toString()}</td>
+                    <td>{bazowe[0][1].toString()}</td>
+                    <td>{bazowe[0][2].toString()}</td>
+                    <td>{bazowe[0][3].toString()}</td>
                 </tr>
                 <tr>
                     <th scope="row">D2</th>
-                    <td>{temp[1][0]["czy_bazowa"]}</td>
-                    <td>{temp[1][1]["czy_bazowa"]}</td>
-                    <td>{temp[1][2]["czy_bazowa"]}</td>
-                    <td>{temp[1][3]["czy_bazowa"]}</td>
+                    <td>{bazowe[1][0].toString()}</td>
+                    <td>{bazowe[1][1].toString()}</td>
+                    <td>{bazowe[1][2].toString()}</td>
+                    <td>{bazowe[1][3].toString()}</td>
                 </tr>
                 <tr>
                     <th scope="row">DF</th>
-                    <td>{temp[2][0]["czy_bazowa"]}</td>
-                    <td>{temp[2][1]["czy_bazowa"]}</td>
-                    <td>{temp[2][2]["czy_bazowa"]}</td>
-                    <td>{temp[2][3]["czy_bazowa"]}</td>
+                    <td>{bazowe[2][0].toString()}</td>
+                    <td>{bazowe[2][1].toString()}</td>
+                    <td>{bazowe[2][2].toString()}</td>
+                    <td>{bazowe[2][3].toString()}</td>
                 </tr>
                 </tbody>
             </table>
