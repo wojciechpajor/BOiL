@@ -561,29 +561,29 @@ TABELA ZMIENNA:
                 <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">O 1</th>
-                    <th scope="col">O 2</th>
-                    <th scope="col">O 3</th>
-                    <th scope="col">O F</th>
+                    <th scope="col">O 1 ({popyt[0]})({odbiorcy[0].popyt})</th>
+                    <th scope="col">O 2 ({popyt[1]})({odbiorcy[1].popyt})</th>
+                    <th scope="col">O 3 ({popyt[2]})({odbiorcy[2].popyt})</th>
+                    <th scope="col">O F ({ile_popytu})({odbiorcy[3].popyt})</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">D1</th>
+                    <th scope="row">D1 ({podaz[0]})({dostawcy[0].podaz})</th>
                     <td>{ile_towaru[0][0]}</td>
                     <td>{ile_towaru[0][1]}</td>
                     <td>{ile_towaru[0][2]}</td>
                     <td>{ile_towaru[0][3]}</td>
                 </tr>
                 <tr>
-                    <th scope="row">D2</th>
+                    <th scope="row">D2 ({podaz[1]})({dostawcy[1].podaz})</th>
                     <td>{ile_towaru[1][0]}</td>
                     <td>{ile_towaru[1][1]}</td>
                     <td>{ile_towaru[1][2]}</td>
                     <td>{ile_towaru[1][3]}</td>
                 </tr>
                 <tr>
-                    <th scope="row">DF</th>
+                    <th scope="row">DF ({ile_podazy})({dostawcy[2].podaz})</th>
                     <td>{ile_towaru[2][0]}</td>
                     <td>{ile_towaru[2][1]}</td>
                     <td>{ile_towaru[2][2]}</td>
