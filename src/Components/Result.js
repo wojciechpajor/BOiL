@@ -427,6 +427,33 @@ TABELA ZMIENNA:
 
     return (
         <div className='container'>
+            <h2>JEDNOSTKOWE Koszty transportu</h2>
+            <table className="table">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">1</th>
+                    <th scope="col">2</th>
+                    <th scope="col">3</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">D1</th>
+                    <td>{koszty_transportu[0][0]}</td>
+                    <td>{koszty_transportu[0][1]}</td>
+                    <td>{koszty_transportu[0][2]}</td>
+                </tr>
+                <tr>
+                    <th scope="row">D2</th>
+                    <td>{koszty_transportu[1][0]}</td>
+                    <td>{koszty_transportu[1][1]}</td>
+                    <td>{koszty_transportu[1][2]}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div>JEDNOSTKOWE KOSZTY ZAKUPU u dostawcy 1: {dostawcy[0].koszt_zakupu}</div>
+            <div>JEDNOSTKOWE KOSZTY ZAKUPU u dostawcy 2: {dostawcy[1].koszt_zakupu}</div>
             <h2>Koszt całkowity</h2>
             <table className="table">
                 <thead>
