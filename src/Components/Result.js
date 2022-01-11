@@ -493,20 +493,20 @@ TABELA ZMIENNA:
                 <tr>
                     <th scope="row">D1</th>
                     <td>{zysk_jednostkowy[0][0]}</td>
-                    <td>{koszty_calkowity[0][1]}</td>
-                    <td>{koszty_calkowity[0][2]}</td>
+                    <td>{zysk_jednostkowy[0][1]}</td>
+                    <td>{zysk_jednostkowy[0][2]}</td>
                 </tr>
                 <tr>
                     <th scope="row">D2</th>
-                    <td>{koszty_calkowity[1][0]}</td>
-                    <td>{koszty_calkowity[1][1]}</td>
-                    <td>{koszty_calkowity[1][2]}</td>
+                    <td>{zysk_jednostkowy[1][0]}</td>
+                    <td>{zysk_jednostkowy[1][1]}</td>
+                    <td>{zysk_jednostkowy[1][2]}</td>
                 </tr>
                 <tr>
                     <th scope="row">DF</th>
-                    <td>{koszty_calkowity[2][0]}</td>
-                    <td>{koszty_calkowity[2][1]}</td>
-                    <td>{koszty_calkowity[2][2]}</td>
+                    <td>{zysk_jednostkowy[2][0]}</td>
+                    <td>{zysk_jednostkowy[2][1]}</td>
+                    <td>{zysk_jednostkowy[2][2]}</td>
                 </tr>
                 </tbody>
             </table>
