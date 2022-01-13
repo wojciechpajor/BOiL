@@ -331,6 +331,19 @@ TABELA ZMIENNA:
             }
         }
     }
+
+    if (odbiorcy[3].popyt !== 0) {
+        ile_towaru[2][3] += odbiorcy[3].popyt;
+        dostawcy[2].podaz -= odbiorcy[3].popyt;
+        odbiorcy[3].popyt = 0;
+    }
+
+    if (dostawcy[2].podaz !== 0) {
+        ile_towaru[2][3] += dostawcy[2].podaz;
+        odbiorcy[3].popyt -= dostawcy[2].podaz;
+        dostawcy[2].podaz = 0;
+    }
+
     show();
 
     function wyliczenie_alfa_beta() {
