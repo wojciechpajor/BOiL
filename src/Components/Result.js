@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 
 const Result = (props) => {
 
     const {jkz, podaz, popyt, cenaSprzedazy, D1, D2,} = props.inputData;
+    const [deltaCheck, setDeltaCheck] = useState(false);
 
     const dostawcy = [
         {id: 1, podaz: podaz[0], koszt_zakupu: jkz[0]},
@@ -419,9 +420,15 @@ TABELA ZMIENNA:
 
     show();
 
+    const KosztCałkowityD1 = (bazowe[0][0] && koszty_calkowity[0][0])+(bazowe[0][1] && koszty_calkowity[0][1])+(bazowe[0][2] && koszty_calkowity[0][2])
+    const KosztCałkowityD2 = (bazowe[1][0] && koszty_calkowity[1][0])+(bazowe[1][1] && koszty_calkowity[1][1])+(bazowe[1][2] && koszty_calkowity[1][2])
+    const PrzychodCałkowityD1 = (bazowe[0][0] && ile_towaru[0][0]*zysk_jednostkowy[0][0])+(bazowe[0][1] && ile_towaru[0][1]*zysk_jednostkowy[0][1])+(bazowe[0][2] && ile_towaru[0][2]*zysk_jednostkowy[0][2])
+    const PrzychodCałkowityD2 = (bazowe[1][0] && ile_towaru[1][0]*zysk_jednostkowy[1][0])+(bazowe[1][1] && ile_towaru[1][1]*zysk_jednostkowy[1][1])+(bazowe[1][2] && ile_towaru[1][2]*zysk_jednostkowy[1][2])
+
+
     return (
         <div className='container'>
-            <h2 className="pt-5">Jednostkowe Koszty transportu</h2>
+{/*            <h2 className="pt-5">Jednostkowe Koszty transportu</h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -445,8 +452,8 @@ TABELA ZMIENNA:
                     <td>{koszty_transportu[1][2]}</td>
                 </tr>
                 </tbody>
-            </table >
-            <h2 className="pt-3" >Jednostkowe koszty zakupu:</h2>
+            </table >*/}
+{/*            <h2 className="pt-3" >Jednostkowe koszty zakupu:</h2>
             <table className="table">
                 <thead>
                 <tr>
@@ -462,6 +469,70 @@ TABELA ZMIENNA:
                 <tr>
                     <th scope="row">D2</th>
                     <td>{dostawcy[1].koszt_zakupu}</td>
+                </tr>
+                </tbody>
+            </table>*/}
+            <h1 className="mt-5" >Wyniki optymalizacji:</h1>
+            <h4>Koszt całkowity:
+                {" "}{KosztCałkowityD1+KosztCałkowityD2}
+            </h4>
+            <h4>Przychód całkowity:
+                {" "}{PrzychodCałkowityD1+PrzychodCałkowityD2}
+            </h4>
+            <h4>Zysk posrednik D1:
+                {" "}{PrzychodCałkowityD1-KosztCałkowityD1}
+            </h4>
+            <h4>Zysk posrednik D2:
+                {" "}{PrzychodCałkowityD2-KosztCałkowityD2}
+            </h4>
+            <h2 className="pt-5" >Tabela optymalnych przewozów</h2>
+            <table className="table">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">O 1</th>
+                    <th scope="col">O 2</th>
+                    <th scope="col">O 3</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">D1</th>
+                    <td>{bazowe[0][0] && "+"}</td>
+                    <td>{bazowe[0][1] && "+"}</td>
+                    <td>{bazowe[0][2] && "+"}</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">D2</th>
+                    <td>{bazowe[1][0] && "+"}</td>
+                    <td>{bazowe[1][1] && "+"}</td>
+                    <td>{bazowe[1][2] && "+"}</td>
+                </tr>
+                </tbody>
+            </table>
+            <h2 className="pt-5" >Zysk Całkowity z przewożonego towaru: </h2>
+            <table className="table">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">O 1</th>
+                    <th scope="col">O 2</th>
+                    <th scope="col">O 3</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">D1 ({podaz[0]})({dostawcy[0].podaz})</th>
+                    <td>{ile_towaru[0][0]*zysk_jednostkowy[0][0]}</td>
+                    <td>{ile_towaru[0][1]*zysk_jednostkowy[0][1]}</td>
+                    <td>{ile_towaru[0][2]*zysk_jednostkowy[0][2]}</td>
+                </tr>
+                <tr>
+                    <th scope="row">D1 ({podaz[0]})({dostawcy[0].podaz})</th>
+                    <td>{ile_towaru[1][0]*zysk_jednostkowy[1][0]}</td>
+                    <td>{ile_towaru[1][1]*zysk_jednostkowy[1][1]}</td>
+                    <td>{ile_towaru[1][2]*zysk_jednostkowy[1][2]}</td>
                 </tr>
                 </tbody>
             </table>
@@ -513,47 +584,6 @@ TABELA ZMIENNA:
                     <td>{zysk_jednostkowy[1][1]}</td>
                     <td>{zysk_jednostkowy[1][2]}</td>
                 </tr>
-                <tr>
-                    <th scope="row">DF</th>
-                    <td>{zysk_jednostkowy[2][0]}</td>
-                    <td>{zysk_jednostkowy[2][1]}</td>
-                    <td>{zysk_jednostkowy[2][2]}</td>
-                </tr>
-                </tbody>
-            </table>
-            <h2 className="pt-5" >Które trasy wybieramy w ostatnim podejściu (po zastosowaniu już funkcji korygującej), kierując się regułą maksymalnego elementu macierzy.</h2>
-            <table className="table">
-                <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">O 1</th>
-                    <th scope="col">O 2</th>
-                    <th scope="col">O 3</th>
-                    <th scope="col">O F</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">D1</th>
-                    <td>{bazowe[0][0].toString()}</td>
-                    <td>{bazowe[0][1].toString()}</td>
-                    <td>{bazowe[0][2].toString()}</td>
-                    <td>{bazowe[0][3].toString()}</td>
-                </tr>
-                <tr>
-                    <th scope="row">D2</th>
-                    <td>{bazowe[1][0].toString()}</td>
-                    <td>{bazowe[1][1].toString()}</td>
-                    <td>{bazowe[1][2].toString()}</td>
-                    <td>{bazowe[1][3].toString()}</td>
-                </tr>
-                <tr>
-                    <th scope="row">DF</th>
-                    <td>{bazowe[2][0].toString()}</td>
-                    <td>{bazowe[2][1].toString()}</td>
-                    <td>{bazowe[2][2].toString()}</td>
-                    <td>{bazowe[2][3].toString()}</td>
-                </tr>
                 </tbody>
             </table>
             <h2 className="pt-5" >Ilość towaru przeworzona do odbiorcy: </h2>
@@ -561,29 +591,29 @@ TABELA ZMIENNA:
                 <thead>
                 <tr>
                     <th scope="col"></th>
-                    <th scope="col">O 1 ({popyt[0]})({odbiorcy[0].popyt})</th>
-                    <th scope="col">O 2 ({popyt[1]})({odbiorcy[1].popyt})</th>
-                    <th scope="col">O 3 ({popyt[2]})({odbiorcy[2].popyt})</th>
-                    <th scope="col">O F ({ile_popytu})({odbiorcy[3].popyt})</th>
+                    <th scope="col">O 1</th>
+                    <th scope="col">O 2</th>
+                    <th scope="col">O 3</th>
+                    <th scope="col">Niewykorzystany popyt</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">D1 ({podaz[0]})({dostawcy[0].podaz})</th>
+                    <th scope="row">D1 ({podaz[0]})</th>
                     <td>{ile_towaru[0][0]}</td>
                     <td>{ile_towaru[0][1]}</td>
                     <td>{ile_towaru[0][2]}</td>
                     <td>{ile_towaru[0][3]}</td>
                 </tr>
                 <tr>
-                    <th scope="row">D2 ({podaz[1]})({dostawcy[1].podaz})</th>
+                    <th scope="row">D2 ({podaz[1]})</th>
                     <td>{ile_towaru[1][0]}</td>
                     <td>{ile_towaru[1][1]}</td>
                     <td>{ile_towaru[1][2]}</td>
                     <td>{ile_towaru[1][3]}</td>
                 </tr>
                 <tr>
-                    <th scope="row">DF ({ile_podazy})({dostawcy[2].podaz})</th>
+                    <th scope="row">DF ({ile_podazy})</th>
                     <td>{ile_towaru[2][0]}</td>
                     <td>{ile_towaru[2][1]}</td>
                     <td>{ile_towaru[2][2]}</td>
@@ -591,8 +621,8 @@ TABELA ZMIENNA:
                 </tr>
                 </tbody>
             </table>
-            <h2 className="pt-5" >Obliczanie alfy, bety, delty (by zobaczyć czy dobrze wylicza) : </h2>
-            <table className="table">
+            <h2 className="pt-5" ><button className="btn btn-primary" onClick={() => setDeltaCheck(!deltaCheck)} >Toogle</button> Obliczanie alfy, bety, delty (by zobaczyć czy dobrze wylicza) : </h2>
+            <table hidden={deltaCheck} className="table">
                 <thead>
                 <tr>
                     <th scope="col"></th>
